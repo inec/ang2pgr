@@ -7,7 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+  myProp:string="adfasdf sdf";
   myMethod(){
+    this.myProp='diffe';
     console.log('lte');
   }
 }
