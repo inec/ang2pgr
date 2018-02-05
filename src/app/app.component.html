@@ -3,4 +3,11 @@
     <button (click)="myMethod()"> press</button>
   <p>{{myProp}}</p>
 
+
+  <ul>
+    <li *ngFor="let arr of myArr">
+      <strong>{{arr.title}}</strong>
+      <p>{{ arr.desc}}</p>
+    </li>
+  </ul>
 <router-outlet></router-outlet>
