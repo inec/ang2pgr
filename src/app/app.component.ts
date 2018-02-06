@@ -51,7 +51,6 @@ export class AppComponent {
 
   myArr=[
 {'title':'my title','desc': 'blog desc'},
-{'title':'my title','desc': 'blog desc'},
 {'title':'my title','desc': 'blog des3c'},
   ];
   myMethod(){
