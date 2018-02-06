@@ -18,20 +18,21 @@
         <input type="text" id="message" placeholder="Your chat message here.." [(ngModel)]="msg" #message>
         <input type="submit" class="submit" value="Send now" (click)="send(message.value)">
   
-        <div class="details-container">
+        <div class="details-container" *ngFor="let item of items | async">
           <div class="row">
             <div class="medium-9 columns">
-              <p>This is a chat message</p>
+                <p>{{  item.message }}--{{item.key}}</p>
             </div>
             <div class="medium-3 columns">
-              <button>delete</button>
+                 <button (click)="delete(item.key)" >delete</button> 
+                <button (click)="deleteItem(item.key)">Delete</button>
               <button>edit</button>
             </div>
           </div>
         </div>
   
 
-        <div class="details-container">
+        <!-- <div class="details-container">
           <div class="row">
             <div class="medium-9 columns">
               <input type="text" value="">
@@ -41,7 +42,7 @@
               <button>edit</button>
             </div>
           </div>
-        </div>
+        </div> -->
   
 
       </div>
