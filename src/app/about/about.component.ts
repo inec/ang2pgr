@@ -12,6 +12,11 @@ export class AboutComponent implements OnInit {
   constructor(private router:ActivatedRoute) { }
 
   ngOnInit() {
+    this.router.params.subscribe( (params)=>{
+      this.name = params['name'];
+    }
+
+    )
   }
 
 }
