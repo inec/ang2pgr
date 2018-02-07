@@ -4,7 +4,7 @@ const path = require('path');
 const http = require('http');
 const app = express();
 
-//const api = require('./server/routes/api');
+const api = require('./server/routes/api');
 
 // Parsers
 app.use(bodyParser.json());
@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({ extended: false}));
 
 app.use(express.static(path.join(__dirname, 'dist')));
 
-//app.use('/api', api);
+app.use('/api', api);
 
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'dist/index.html'));
