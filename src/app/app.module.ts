@@ -11,7 +11,11 @@ import {HttpModule } from '@angular/http';
 
 import { AboutComponent } from './about/about.component';
 import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseModule } from 'angularfire2/database'
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { HeaderComponent } from './header/header.component';
+import { HomeComponent } from './home/home.component';
+import { ArticleService } from './article.service';
+
 
 export const firebaseConfig = {
   apiKey: "AIzaSyBJBJcBOnkb1RqC-03BUB_kIA2L50re-mE",
@@ -25,7 +29,9 @@ export const firebaseConfig = {
 @NgModule({
   declarations: [
     AppComponent,
-    AboutComponent
+    AboutComponent,
+    HeaderComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +41,7 @@ export const firebaseConfig = {
     AngularFireDatabaseModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [ ArticleService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
