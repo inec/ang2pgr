@@ -12,9 +12,11 @@ import {HttpModule } from '@angular/http';
 import { AboutComponent } from './about/about.component';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { ArticleService } from './article.service';
+import { ArticleComponent } from './article/article.component';
 
 
 export const firebaseConfig = {
@@ -31,7 +33,8 @@ export const firebaseConfig = {
     AppComponent,
     AboutComponent,
     HeaderComponent,
-    HomeComponent
+    HomeComponent,
+    ArticleComponent
   ],
   imports: [
     BrowserModule,
