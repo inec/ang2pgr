@@ -5,6 +5,8 @@ import  { AboutComponent } from './about/about.component';
 
 import { ArticleComponent } from './article/article.component';
 
+import { CreateComponent } from './create/create.component';
+
 const routes: Routes = [
   {
     path:'',
@@ -15,7 +17,11 @@ const routes: Routes = [
   {
     path: 'articles/:id',
     component: ArticleComponent
-  }
+  },
+  {
+    path: 'create',
+    component: CreateComponent
+  },
   
 ];
 
