@@ -20,18 +20,46 @@ export class CreateComponent implements OnInit {
     this._articleService.getArticles()
       .subscribe(res=> this.articles = res);
 
-    this.articleFrm = this.fb.group({
-      'title' : [null, Validators.compose([Validators.required, Validators.minLength(10), Validators.maxLength(45)])],
-      'content' : [null, Validators.compose([Validators.required, Validators.minLength(10)])],
-    });
-  }
 
-  addArticle(article: Article) {
-    this._articleService.insertArticle(article)
-      .subscribe(newArticle => {
-        this.articles.push(newArticle);
-        this.router.navigateByUrl('/');
+
+      this.aR.params.subscribe((params) => {
+        if (params['id']) {
+          this._articleService.getArticle(params['id'])
+            .subscribe(res => {
+  
+              this.article = res;
+  
+              this.articleFrm = this.fb.group({
+                'title' : [this.article['title'], Validators.compose([Validators.required, Validators.minLength(10), Validators.maxLength(45)])],
+                'content' : [this.article['content'], Validators.compose([Validators.required, Validators.minLength(10)])],
+              });
+            });
+        } else {
+          this.articleFrm = this.fb.group({
+            'title' : [null, Validators.compose([Validators.required, Validators.minLength(10), Validators.maxLength(45)])],
+            'content' : [null, Validators.compose([Validators.required, Validators.minLength(10)])],
+          });
+        }
       })
-  }
+    }
+  
+    addArticle(articleId, article: Article) {
 
-}
+      if (articleId !== undefined) {
+  
+        this._articleService.updateArticle(article, articleId._id)
+          .subscribe(updateArticle => {
+            this.router.navigateByUrl('/');
+          })
+      } else {
+  
+        this._articleService.insertArticle(article)
+          .subscribe(newArticle => {
+            this.articles.push(newArticle);
+            this.router.navigateByUrl('/');
+          })
+      }
+    }
+  
+  }
+  
