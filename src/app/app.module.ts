@@ -6,8 +6,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 
-import {FormsModule } from '@angular/forms';
+
 import {HttpModule } from '@angular/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AboutComponent } from './about/about.component';
 import { AngularFireModule } from 'angularfire2';
@@ -17,6 +18,7 @@ import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { ArticleService } from './article.service';
 import { ArticleComponent } from './article/article.component';
+import { CreateComponent } from './create/create.component';
 
 
 export const firebaseConfig = {
@@ -34,11 +36,13 @@ export const firebaseConfig = {
     AboutComponent,
     HeaderComponent,
     HomeComponent,
-    ArticleComponent
+    ArticleComponent,
+    CreateComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,

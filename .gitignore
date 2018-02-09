@@ -1,10 +1,17 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
+/src/app/app.module.ts
+
+/server/routes/api.js
+
+*.json
+*.spec.ts
 # compiled output
 /dist
 /dist-server
 /tmp
 /out-tsc
+
 
 # dependencies
 /node_modules
